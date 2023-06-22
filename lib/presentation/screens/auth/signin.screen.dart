@@ -108,7 +108,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   );
                 } else if (state is SigninError) {
-                  print(state.message);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: CustomText(
+                        state.message,
+                        color: Colors.white,
+                      ),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                  Navigator.pop(context);
                 } else if (state is SigninLoaded) {
                   Navigator.pop(context);
                 }
