@@ -18,3 +18,7 @@ class CurrentUserLoaded extends UserState {
 }
 
 class CurrentUserEmpty extends UserState {}
+
+class CurrentUserUpdating extends UserState {}
+
+class CurrentUserUpdatingSuccessful extends UserState {}

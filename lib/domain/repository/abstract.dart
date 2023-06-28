@@ -23,4 +23,5 @@ abstract class Repository {
     required String path,
   });
   Stream<List<CuisineEntity>> streamCuisines();
+  Future<void> updateUser(String uid, UserEntity user, String image);
 }

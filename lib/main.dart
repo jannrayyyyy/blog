@@ -2,6 +2,7 @@ import 'package:blog/presentation/screens/auth/auth.screen.dart';
 import 'package:blog/presentation/statemanagement/cubit/authentication/auth/user_auth_cubit.dart';
 import 'package:blog/presentation/statemanagement/cubit/authentication/state/user_state_cubit.dart';
 import 'package:blog/presentation/statemanagement/cubit/common/common.cubit.dart';
+import 'package:blog/presentation/statemanagement/cubit/cubit/image_cubit.dart';
 import 'package:blog/presentation/statemanagement/cubit/cuisine/cuisine_cubit.dart';
 import 'package:blog/presentation/statemanagement/cubit/user/user_cubit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -50,6 +51,12 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => BnBCubit(),
+          ),
+          BlocProvider(
+            create: (context) => ImageCubit(),
+          ),
+          BlocProvider(
+            create: (context) => ObscureCubit(),
           ),
         ],
         child: const AuthScreen(),

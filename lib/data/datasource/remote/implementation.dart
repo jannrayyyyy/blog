@@ -82,4 +82,16 @@ class RemoteDatasourceImpl implements RemoteDatasource {
         .child('$label/${file?.path}')
         .putFile(File(file?.path ?? ""));
   }
+
+  @override
+  Future<void> updateUser(String uid, UserModel user, String image) async {
+    final docRef = db.collection('users').doc(uid);
+    user.imageUrl = image;
+    await docRef.update(user.toMap()).then(
+          (value) async => await http.post(
+            Uri.parse('http://$ip/blog/update.user.php'),
+            body: user.toMap(),
+          ),
+        );
+  }
 }

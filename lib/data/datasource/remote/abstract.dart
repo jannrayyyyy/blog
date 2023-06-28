@@ -21,4 +21,5 @@ abstract class RemoteDatasource {
     required String path,
   });
   Stream<List<CuisineModel>> streamCuisines();
+  Future<void> updateUser(String uid, UserModel user, String image);
 }

@@ -5,3 +5,9 @@ class BnBCubit extends Cubit<int> {
 
   void onNavigate(int index) => emit(index);
 }
+
+class ObscureCubit extends Cubit<bool> {
+  ObscureCubit() : super(true);
+
+  void onChanged(bool isObscure) => emit(isObscure);
+}

@@ -97,4 +97,9 @@ class RepositoryImpl implements Repository {
       return Left(ServerFailure('$e'));
     }
   }
+
+  @override
+  Future<void> updateUser(String uid, UserEntity user, String image) async {
+    await remote.updateUser(uid, UserModel.toEntity(user), image);
+  }
 }
