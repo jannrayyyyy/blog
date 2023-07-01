@@ -13,6 +13,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   List<Widget> screens = [
     const HomeScreen(),
     const ProfileScreen(),

@@ -131,9 +131,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     );
                   } else if (state is SigninError) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: CustomText(
-                          state.message,
+                          'Email and Password is incorrect',
                           color: Colors.white,
                         ),
                         backgroundColor: Colors.red,

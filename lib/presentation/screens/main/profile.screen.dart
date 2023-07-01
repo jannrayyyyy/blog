@@ -31,6 +31,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       return Container(
         decoration: const BoxDecoration(),
         child: BlocBuilder<UserCubit, UserState>(
+          bloc: context.read<UserCubit>()
+            ..getUser(
+              FirebaseAuth.instance.currentUser?.uid ?? '',
+            ),
           builder: (context, state) {
             if (state is CurrentUserLoading) {
               return const Center(

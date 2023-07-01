@@ -16,7 +16,11 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   final storage = FirebaseStorage.instance;
   @override
   Future<void> signIn(String email, String password) async {
-    await auth.signInWithEmailAndPassword(email: email, password: password);
+    await auth
+        .signInWithEmailAndPassword(email: email, password: password)
+        .then((value) async => await http.post(
+              Uri.parse('http://$ip/blog/login.php'),
+            ));
   }
 
   @override
@@ -87,11 +91,9 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   Future<void> updateUser(String uid, UserModel user, String image) async {
     final docRef = db.collection('users').doc(uid);
     user.imageUrl = image;
-    await docRef.update(user.toMap()).then(
-          (value) async => await http.post(
-            Uri.parse('http://$ip/blog/update.user.php'),
-            body: user.toMap(),
-          ),
-        );
+    await docRef.update(user.toMap()).then((value) async => await http.post(
+          Uri.parse('http://$ip/blog/update.user.php'),
+          body: user.toMap(),
+        ));
   }
 }
